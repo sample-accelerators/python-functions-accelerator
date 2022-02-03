@@ -1,9 +1,9 @@
 apiVersion: accelerator.apps.tanzu.vmware.com/v1alpha1
 kind: Accelerator
 metadata:
-  name: functions-accelerator
+  name: functions-accelerator-python
 spec:
   git:
-    url: https://github.com/bbtong/functions-accelerator
+    url: https://github.com/bbtong/functions-accelerator-python
     ref:
       branch: main

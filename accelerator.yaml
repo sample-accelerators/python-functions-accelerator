@@ -1,7 +1,7 @@
 accelerator:
-  displayName: Function Buildpacks Accelerator
-  description: Generates templates for Function Buildpacks for Knative
-  iconUrl: https://raw.githubusercontent.com/bbtong/functions-accelerator/main/functions-icon.png
+  displayName: Function Buildpacks Accelerator - Python
+  description: Generates Python templates for Function Buildpacks for Knative
+  iconUrl: https://raw.githubusercontent.com/bbtong/functions-accelerator-python/main/functions-icon.png
   tags:
     - Functions
     - Python
