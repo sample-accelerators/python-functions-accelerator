@@ -1,16 +1,41 @@
-# Deploying to Kubernetes
+# Deploying
+
+## Pre-Requisites
+- [curl](https://curl.se/download.html)
+- [pack](https://buildpacks.io/docs/tools/pack/) >= `0.23.0`
+- [func](https://github.com/knative-sandbox/kn-plugin-func/blob/main/docs/installing_cli.md)
+
+## Building your function
+
+You can build your function using our provided builder:
+```
+pack build <MY-FUNCTION-NAME> --path . --builder us.gcr.io/daisy-284300/kn-fn/builder:0.0.6
+```
+
+## Local Deployment
+
+### Docker
+
+This assumes you have Docker Desktop properly installed and running.
+
+With Docker Desktop running, authenticated, and the ports (default `8080`) available:
+
+```
+docker run -it --rm -p 8080:8080 sample-java
+```
+
+## Testing
+Later, once you have [deployed](DEPLOYING.md) your function, you can interact with our templates by doing:
+- Single function definition: `curl -X POST localhost:8080`
+- Multiple function definitions: `curl -H "Content-Type: application/json" -X POST localhost:8080/hello`, where `hello` as a path invokes your function's definition
+
+With our templates, you should see some HTML or sample text returned indicating a success.
+
+## TAP Deployment - Alpha
+### Deploying to Kubernetes
 
 > NOTE: The provided `config/workload.yaml` file uses the Git URL for this sample. When you want to modify the source, you must push the code to your own Git repository and then update the `spec.source.git` information in the `config/workload.yaml` file.
 
-## Using the Templates
-
-You may use the [Func CLI](https://github.com/knative-sandbox/kn-plugin-func) locally or use Supply Chain for Tanzu Application Platform.
-
-A default builder is provided to you here:
-```
-builders:
-  default: us.gcr.io/daisy-284300/kn-fn/builder:0.0.6
-```
 
 ## Deploying to Kubernetes as a TAP workload with Tanzu CLI
 
@@ -31,9 +56,7 @@ tanzu apps workload create functions-accelerator -f config/workload.yaml \
   --type web
 ```
 
-## Accessing the app deployed to your cluster
-
-If you don't have `curl` installed it can be installed using downloads here: https://curl.se/download.html
+## Interacting with Tanzu Application Platform
 
 Determine the URL to use for the accessing the app by running:
 
