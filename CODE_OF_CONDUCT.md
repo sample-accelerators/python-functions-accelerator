@@ -3,8 +3,7 @@
 
 ## Our Pledge
 
-We as members, contributors, and leaders pledge to make participation in function-buildpacks-for-knative project and our
-community a harassment-free experience for everyone, regardless of age, body
+We as members, contributors, and leaders pledge to make participation in `functions-accelerator-java` project and our community a harassment-free experience for everyone, regardless of age, body
 size, visible or invisible disability, ethnicity, sex characteristics, gender
 identity and expression, level of experience, education, socio-economic status,
 nationality, personal appearance, race, religion, or sexual identity
