@@ -9,7 +9,7 @@
 
 You can build your function using our provided builder:
 ```
-pack build <MY-FUNCTION-NAME> --path . --builder us.gcr.io/daisy-284300/kn-fn/builder:0.0.6
+pack build <MY-FUNCTION-NAME> --path . --builder ghcr.io/vmware-tanzu/function-buildpacks-for-knative/functions-builder:0.0.8
 ```
 
 ## Local Deployment
