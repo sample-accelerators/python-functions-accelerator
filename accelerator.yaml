@@ -41,6 +41,7 @@ accelerator:
     dependsOn:
       name: includeTap
     dataType: string
+    required: true
     defaultValue: ""
     
   - name: gitBranch
@@ -51,6 +52,7 @@ accelerator:
     dependsOn:
       name: includeTap
     dataType: string
+    required: true
     defaultValue: "main"
 
 engine:
