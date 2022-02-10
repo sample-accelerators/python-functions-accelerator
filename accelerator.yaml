@@ -1,75 +1,52 @@
 accelerator:
-  displayName: Function Buildpacks Accelerator - Python
-  description: Generates Python templates for Function Buildpacks for Knative
+  displayName: Python Function Buildpacks Accelerator
+  description: Python template function powered by Function Buildpacks for Knative
   iconUrl: https://raw.githubusercontent.com/bbtong/functions-accelerator-python/main/functions-icon.png
   tags:
-    - python
-    - functions
-    - serverless
-    - knative
+  - python
+  - function
+  - serverless
+  - knative
 
+  # Accelerator GUI
   options:
-  - name: select
+  - name: functionName
+    inputType: text
+    label: Default function name
+    defaultValue: hello
+    required: true
+  - name: interfaceType
     inputType: select
-    display: true
-    description: Select a language and event type
-    defaultValue: languagePythonHTTP
+    label: Event Type
     choices:
-      - text: Python HTTP
-        value: languagePythonHTTP
-      - text: Python CloudEvents
-        value: languagePythonCE
-      - text: Java HTTP
-        value: languageJavaHTTP
-      - text: Java CloudEvents
-        value: languageJavaCE
-  - name: includeTap
-    label: "Include TAP deployment resources?"
-    inputType: checkbox
-    dataType: boolean
-    defaultValue: true
+    - value: http
+      text: HTTP Function
+    - value: cloudevents
+      text: CloudEvents Function (Experimental)
+    defaultValue: http
+    required: true
 
 engine:
   merge:
-  # Core files
-  - include: ["LICENSE", "NOTICE", "DEPLOYING.md", "catalog/**", "config/**"]
-    exclude: ["buildpacks/**", "invokers/**", "samples/**", "tests"]
-  # Java CE
-  - condition: "#select == 'languageJavaCE'"
-    include: ["templates/java/cloudevents-gradle/*", "templates/java/cloudevents-maven/*"]
-    chain:
-    - type: RewritePath
-      rewriteTo: "#g0"
-  # Java HTTP
-  - condition: "#select == 'languageJavaHTTP'"
-    include: ["templates/java/http-gradle/*", "templates/java/http-maven/*"]
-    chain:
-    - type: RewritePath
-      rewriteTo: "#g0"
-  # Python CE
-  - condition: "#select == 'languagePythonCE'"
-    include: ["templates/python/cloudevents/**"]
-    chain:
-    - type: RewritePath
-      rewriteTo: "#filename"
-  # Python HTTP
-  - condition: "#select == 'languagePythonHTTP'"
-    include: ["templates/python/http/**"]
-    chain:
-    - type: RewritePath
-      rewriteTo: "#filename"
-  # TAP files
-  - include: [ "config/workload.yaml" ]
-    condition: "#includeTap"
-    chain:
-    - type: ReplaceText
-      substitutions:
-      - text: node-express
-        with: "#artifactId"
-  - include: [ "catalog/catalog-info.yaml" ]
-    condition: "#includeTap"
-    chain:
-    - type: ReplaceText
-      substitutions:
-      - text: node-express
-        with: "#artifactId"
+    - include: [ "func.yaml", "LICENSE", "NOTICE", "DEPLOYING.md", ".gitignore" ]
+    - include: [ "src/**" ]
+      chain:
+      - type: ReplaceText
+        substitutions:
+        - text: "main"
+          with: "#functionName"
+    - include: [ "cloudevents/func.py" ]
+      condition: "#interfaceType == 'cloudevents'"
+      chain:
+      - type: ReplaceText
+        substitutions:
+        - text: "main"
+          with: "#functionName"
+      - type: RewritePath
+        rewriteTo: "'src/func.py'"
+    - include: [ "README.md"]
+      chain:
+      - type: ReplaceText
+        substitutions:
+        - text: functions-python
+          with: "#functionName"
