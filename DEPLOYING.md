@@ -1,6 +1,6 @@
 # Deploying
 
-## Pre-Requisites
+## Prerequisites
 - [curl](https://curl.se/download.html)
 - [pack](https://buildpacks.io/docs/tools/pack/) >= `0.23.0`
 - [func](https://github.com/knative-sandbox/kn-plugin-func/blob/main/docs/installing_cli.md)
