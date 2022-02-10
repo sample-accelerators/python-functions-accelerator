@@ -27,11 +27,19 @@ accelerator:
     defaultValue: http
     required: true
     
+  - name: includeTap
+    label: "Include TAP deployment resources?"
+    inputType: checkbox
+    dataType: boolean
+    defaultValue: true
+    
   - name: gitUrl
     label: Git Repository URL
     display: true
     description: The Git repository you plan to use to store this accelerator's files
     inputType: text
+    dependsOn:
+      name: includeTap
     dataType: string
     defaultValue: ""
     
@@ -40,14 +48,10 @@ accelerator:
     display: true
     description: The corresponding branch of the Git repository
     inputType: text
+    dependsOn:
+      name: includeTap
     dataType: string
     defaultValue: "main"
-    
-  - name: includeTap
-    label: "Include TAP deployment resources?"
-    inputType: checkbox
-    dataType: boolean
-    defaultValue: true
 
 engine:
   merge:
