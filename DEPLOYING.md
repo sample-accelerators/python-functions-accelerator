@@ -7,7 +7,9 @@
 
 ## Building your function
 
-You can build your function using our provided builder, which already includes buildpacks and an invoker layer:
+You can build your function using our provided builder, which already includes buildpacks and an invoker layer.
+
+To do so, you can run this command from the `src/` directory, where `func.py` exists.
 ```
 pack build my-python-fn --path . --builder ghcr.io/vmware-tanzu/function-buildpacks-for-knative/functions-builder:0.0.8
 ```
