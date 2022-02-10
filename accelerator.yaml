@@ -15,6 +15,7 @@ accelerator:
     label: Default function name
     defaultValue: hello
     required: true
+    
   - name: interfaceType
     inputType: select
     label: Event Type
@@ -25,6 +26,28 @@ accelerator:
       text: CloudEvents Function (Experimental)
     defaultValue: http
     required: true
+    
+  - name: gitUrl
+    label: Git Repository URL
+    display: true
+    description: The Git repository you plan to use to store this accelerator's files
+    inputType: text
+    dataType: string
+    defaultValue: ""
+    
+  - name: gitBranch
+    label: Git Repository Branch
+    display: true
+    description: The corresponding branch of the Git repository
+    inputType: text
+    dataType: string
+    defaultValue: "main"
+    
+  - name: includeTap
+    label: "Include TAP deployment resources?"
+    inputType: checkbox
+    dataType: boolean
+    defaultValue: true
 
 engine:
   merge:
@@ -50,3 +73,17 @@ engine:
         substitutions:
         - text: functions-python
           with: "#functionName"
+    # TAP files
+    - include: [ "config/workload.yaml" ]
+      condition: "#includeTap"
+      chain:
+        - type: ReplaceText
+          substitutions:
+            - text: https://github.com/bbtong/functions-accelerator-python.git
+              with: "#gitUrl"
+            - text: main
+              with: "#gitBranch"
+        - type: RewritePath
+          rewriteTo: "'config/' + #filename"
+    - include: [ "catalog/catalog-info.yaml" ]
+      condition: "#includeTap"
