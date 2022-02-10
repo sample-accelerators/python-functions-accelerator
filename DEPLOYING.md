@@ -7,10 +7,11 @@
 
 ## Building your function
 
-You can build your function using our provided builder:
+You can build your function using our provided builder, which already includes buildpacks and an invoker layer:
 ```
-pack build <MY-FUNCTION-NAME> --path . --builder us.gcr.io/daisy-284300/kn-fn/builder:0.0.6
+pack build my-python-fn --path . --builder ghcr.io/vmware-tanzu/function-buildpacks-for-knative/functions-builder:0.0.8
 ```
+Where `my-python-fn` is the name of your runnable function image, later used by Docker.
 
 ## Local Deployment
 
@@ -21,7 +22,7 @@ This assumes you have Docker Desktop properly installed and running.
 With Docker Desktop running, authenticated, and the ports (default `8080`) available:
 
 ```
-docker run -it --rm -p 8080:8080 sample-java
+docker run -it --rm -p 8080:8080 my-python-fn
 ```
 
 ## Testing
