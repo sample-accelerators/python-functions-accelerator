@@ -42,7 +42,7 @@ accelerator:
       name: includeTap
     dataType: string
     required: true
-    defaultValue: "https://github.com/sample-accelerators/functions-accelerator-python.git"
+    defaultValue: "https://github.com/sample-accelerators/python-functions-accelerator.git"
     
   - name: gitBranch
     label: Git Repository Branch
@@ -85,7 +85,7 @@ engine:
       chain:
         - type: ReplaceText
           substitutions:
-            - text: https://github.com/sample-accelerators/functions-accelerator-python.git
+            - text: https://github.com/sample-accelerators/python-functions-accelerator.git
               with: "#gitUrl"
             - text: main
               with: "#gitBranch"
