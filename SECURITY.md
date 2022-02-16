@@ -26,13 +26,13 @@ Provide a descriptive subject line and in the body of the email include the foll
 
 ## When to Report a Vulnerability
 
-* When you think functions-accelerator-python has a potential security vulnerability.
-* When you suspect a potential vulnerability but you are unsure that it impacts functions-accelerator-python.
-* When you know of or suspect a potential vulnerability on another project that is used by functions-accelerator-python.
+* When you think python-functions-accelerator has a potential security vulnerability.
+* When you suspect a potential vulnerability but you are unsure that it impacts python-functions-accelerator.
+* When you know of or suspect a potential vulnerability on another project that is used by python-functions-accelerator.
 
 ## Confidentiality, Integrity and Availability
 
 We consider vulnerabilities leading to the compromise of data confidentiality, elevation of privilege, or integrity to be our highest priority concerns. Availability, in particular in areas relating to DoS and resource exhaustion, is also a serious security concern. The VMware Security Team takes all vulnerabilities, potential vulnerabilities, and suspected vulnerabilities seriously and will investigate them in an urgent and expeditious manner.
 
-Note that we do not currently consider the default settings for functions-accelerator-python to be secure-by-default. It is necessary for operators to explicitly configure settings, role based access control, and other resource related features in functions-accelerator-python to provide a hardened functions-accelerator-python environment. We will not act on any security disclosure that relates to a lack of safe defaults. Over time, we will work towards improved safe-by-default configuration, taking into account backwards compatibility.
+Note that we do not currently consider the default settings for python-functions-accelerator to be secure-by-default. It is necessary for operators to explicitly configure settings, role based access control, and other resource related features in python-functions-accelerator to provide a hardened python-functions-accelerator environment. We will not act on any security disclosure that relates to a lack of safe defaults. Over time, we will work towards improved safe-by-default configuration, taking into account backwards compatibility.
 
