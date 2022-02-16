@@ -1,7 +1,7 @@
 accelerator:
   displayName: Python Function Buildpacks Accelerator
   description: Python template function powered by Function Buildpacks for Knative
-  iconUrl: https://raw.githubusercontent.com/bbtong/functions-accelerator-python/main/functions-icon.png
+  iconUrl: https://raw.githubusercontent.com/sample-accelerators/functions-accelerator-python/main/functions-icon.png
   tags:
   - python
   - function
@@ -85,7 +85,7 @@ engine:
       chain:
         - type: ReplaceText
           substitutions:
-            - text: https://github.com/bbtong/functions-accelerator-python.git
+            - text: https://github.com/sample-accelerators/functions-accelerator-python.git
               with: "#gitUrl"
             - text: main
               with: "#gitBranch"

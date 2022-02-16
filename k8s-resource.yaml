@@ -4,6 +4,6 @@ metadata:
   name: functions-accelerator-python
 spec:
   git:
-    url: https://github.com/bbtong/functions-accelerator-python
+    url: https://github.com/sample-accelerators/functions-accelerator-python
     ref:
       branch: main

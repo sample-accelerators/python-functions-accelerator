@@ -11,4 +11,4 @@ spec:
     git:
       ref:
         branch: main
-      url: https://github.com/bbtong/functions-accelerator-python.git
+      url: https://github.com/sample-accelerators/functions-accelerator-python.git
