@@ -10,7 +10,6 @@ These template files are generated from VMware's open-source [Function Buildpack
 To begin editing your function, refer to the tree diagram below of the file to modify:
 ```
 functions-python
-└── src
     └── func.py // EDIT THIS FILE
 ```
 
