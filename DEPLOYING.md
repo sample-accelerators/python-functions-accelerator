@@ -92,7 +92,7 @@ tanzu apps workload create functions-accelerator -f config/workload.yaml \
 Determine the URL to use for the accessing the app by running:
 
 ```
-tanzu apps workload get functions-accelerator
+tanzu apps workload get python-functions-accelerator
 ```
 
 To access the deployed app open the URL shown in your browser.
