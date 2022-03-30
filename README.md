@@ -28,12 +28,6 @@ Please see [DEPLOYING.md](DEPLOYING.md) on how to build, deploy, and test your n
 
 ## Links
 
-### Contributing
-* [Contributing Guide](https://github.com/vmware-tanzu/function-buildpacks-for-knative/blob/main/CONTRIBUTING.md)
-
-### License
-* [BSD-2 License](https://github.com/vmware-tanzu/function-buildpacks-for-knative/blob/main/LICENSE)
-
 ### Reporting Bugs or Vulnerabilities
 * [Bugs, Issues, Missing Features](https://github.com/vmware-tanzu/function-buildpacks-for-knative/issues/)
 * [Only Vulnerabilities](https://github.com/vmware-tanzu/function-buildpacks-for-knative/blob/main/SECURITY.md)
