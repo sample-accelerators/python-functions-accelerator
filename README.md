@@ -1,4 +1,4 @@
-# Python Accelerator - Function Buildpacks for Knative
+# Python Accelerator - Function Buildpacks for Knative (v1.0)
 
 This accelerator generates template files, which enable developers to work with Function Buildpacks
 and deploy a FaaS experience easily.
