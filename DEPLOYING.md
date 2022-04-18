@@ -11,7 +11,7 @@ You can build your function using our provided builder, which already includes b
 
 To do so, you can run this command from the `src/` directory, where `func.py` exists.
 ```
-pack build my-python-fn --path . --builder ghcr.io/vmware-tanzu/function-buildpacks-for-knative/functions-builder:0.0.9
+pack build my-python-fn --path . --builder ghcr.io/vmware-tanzu/function-buildpacks-for-knative/functions-builder:0.0.10
 ```
 Where `my-python-fn` is the name of your runnable function image, later used by Docker.
 
