@@ -1,6 +1,6 @@
 accelerator:
-  displayName: Python Function Buildpacks Accelerator
-  description: Python template function powered by Function Buildpacks for Knative
+  displayName: Python Function
+  description: Python function powered by Function Buildpacks for Knative
   iconUrl: https://raw.githubusercontent.com/sample-accelerators/python-functions-accelerator/main/functions-icon.png
   tags:
   - python
@@ -57,27 +57,36 @@ accelerator:
 
 engine:
   merge:
-    - include: [ "func.yaml", "requirements.txt", "LICENSE", "NOTICE", "DEPLOYING.md", ".gitignore" ]
-    - include: [ "func.py" ]
+    - include: [ "requirements.txt", "LICENSE", "NOTICE", ".gitignore" ]
+    - include: [ "func.yaml" ]
       chain:
       - type: ReplaceText
         substitutions:
-        - text: "main"
+        - text: main
+          with: "#functionName"
+    - include: [ "func.py" ]
+      condition: "#interfaceType == 'http'"
+      chain:
+      - type: ReplaceText
+        substitutions:
+        - text: main
           with: "#functionName"
     - include: [ "cloudevents/func.py" ]
       condition: "#interfaceType == 'cloudevents'"
       chain:
       - type: ReplaceText
         substitutions:
-        - text: "main"
+        - text: main
           with: "#functionName"
       - type: RewritePath
         rewriteTo: "'func.py'"
-    - include: [ "README.md"]
+    - include: [ "README.md", "DEPLOYING.md"]
       chain:
       - type: ReplaceText
         substitutions:
-        - text: functions-python
+        - text: my-python-fn
+          with: "#artifactId"
+        - text: main
           with: "#functionName"
     # TAP files
     - include: [ "config/workload.yaml" ]
@@ -85,6 +94,8 @@ engine:
       chain:
         - type: ReplaceText
           substitutions:
+            - text: my-python-fn
+              with: "#artifactId"
             - text: https://github.com/sample-accelerators/python-functions-accelerator.git
               with: "#gitUrl"
             - text: main
@@ -93,3 +104,8 @@ engine:
           rewriteTo: "'config/' + #filename"
     - include: [ "catalog/catalog-info.yaml" ]
       condition: "#includeTap"
+      chain:
+        - type: ReplaceText
+          substitutions:
+            - text: my-python-fn
+              with: "#artifactId"
