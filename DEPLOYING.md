@@ -75,7 +75,7 @@ curl -i -w'\n' -X POST -H "Content-Type: application/cloudevents+json" -d @cloud
 
 ## Deploying to Kubernetes as a TAP workload with Tanzu CLI
 
-You need to select `Include TAP deployment resources` when generating the project for the steps below to function.
+You need to select `Include TAP deployment resources` when generating the project for the steps below to work.
 
 When you are done developing your function, you can simply deploy it using:
 
