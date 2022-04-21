@@ -35,7 +35,7 @@ With our function, you should see some HTML or sample text returned indicating a
 
 ### HTTP
 
-After deploying your function, you can interact with our function by runnig:
+After deploying your function, you can interact with our function by running:
 
 ```
 curl -X POST http://localhost:8080
