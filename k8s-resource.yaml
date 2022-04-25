@@ -1,7 +1,7 @@
 apiVersion: accelerator.apps.tanzu.vmware.com/v1alpha1
 kind: Accelerator
 metadata:
-  name: python-functions-accelerator
+  name: python-function
 spec:
   git:
     url: https://github.com/sample-accelerators/python-functions-accelerator
