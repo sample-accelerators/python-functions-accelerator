@@ -35,7 +35,6 @@ accelerator:
     
   - name: gitUrl
     label: Git Repository URL
-    display: true
     description: Change this to the Git repository you will use to store this accelerator's files
     inputType: text
     dependsOn:
@@ -46,7 +45,6 @@ accelerator:
     
   - name: gitBranch
     label: Git Repository Branch
-    display: true
     description: The corresponding branch of the Git repository
     inputType: text
     dependsOn:
