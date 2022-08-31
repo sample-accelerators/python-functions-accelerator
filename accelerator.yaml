@@ -22,9 +22,9 @@ accelerator:
     label: Event Type
     choices:
     - value: http
-      text: HTTP Function
+      text: HTTP
     - value: cloudevents
-      text: CloudEvents Function (Experimental)
+      text: CloudEvents
     defaultValue: http
     required: true
     
