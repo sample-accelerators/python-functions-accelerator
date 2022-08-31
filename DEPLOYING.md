@@ -66,14 +66,14 @@ Then you can run:
 curl -i -w'\n' -X POST -H "Content-Type: application/cloudevents+json" -d @cloudevent.json http://localhost:8080
 ```
 
-## TAP Deployment - Alpha
+## Deploying to Tanzu Application Platform (TAP)
 
-### Deploying to Kubernetes
+Using the `config/workload.yaml` it is possible to build, test and deploy this application onto a
+Kubernetes cluster that is provisioned with Tanzu Application Platform (https://tanzu.vmware.com/application-platform).
 
 > NOTE: The provided `config/workload.yaml` file uses the Git URL for this sample. When you want to modify the source, you must push the code to your own Git repository and then update the `spec.source.git` information in the `config/workload.yaml` file.
 
-
-## Deploying to Kubernetes as a TAP workload with Tanzu CLI
+### Deploying to Kubernetes as a TAP workload with Tanzu CLI
 
 You need to select `Include TAP deployment resources` when generating the project for the steps below to work.
 
@@ -92,7 +92,7 @@ tanzu apps workload create my-python-fn -f config/workload.yaml \
   --type web
 ```
 
-## Interacting with Tanzu Application Platform
+### Interacting with Tanzu Application Platform
 
 Determine the URL to use for the accessing the app by running:
 
@@ -106,13 +106,13 @@ After deploying your function, you can interact with the function by using:
 
 > NOTE: Replace the <URL> placeholder with the actual URL.
 
-### for HTTP
+#### for HTTP
 
 ```
 curl -w'\n' -X POST <URL>"
 ```
 
-### for CloudEvents
+#### for CloudEvents
 
 If you'd like to test this function, you may use this CloudEvent saved as `cloudevent.json`:
 
