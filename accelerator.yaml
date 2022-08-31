@@ -85,7 +85,7 @@ engine:
       chain:
       - type: ReplaceText
         substitutions:
-        - text: my-python-fn
+        - text: python-function
           with: "#artifactId"
         - text: main
           with: "#functionName"
@@ -95,7 +95,7 @@ engine:
       chain:
         - type: ReplaceText
           substitutions:
-            - text: my-python-fn
+            - text: python-function
               with: "#artifactId"
             - text: https://github.com/sample-accelerators/python-functions-accelerator.git
               with: "#gitUrl"
@@ -108,5 +108,5 @@ engine:
       chain:
         - type: ReplaceText
           substitutions:
-            - text: my-python-fn
+            - text: python-function
               with: "#artifactId"
